@@ -1,10 +1,12 @@
+import Header from "./components/header"
+import ThemeProvider from "./theme"
 
 function App() {
 
   return (
-    <>
-      StreamLet
-    </>
+    <ThemeProvider>
+      <Header />
+    </ThemeProvider>
   )
 }
 
