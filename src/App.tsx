@@ -1,33 +1,16 @@
-import { Box, Button, Theme, styled } from "@mui/material";
-import { useThemeContext } from "./hooks/useThemeContext";
+import Login from "./pages/Login";
+import { styled } from "@mui/material/styles";
 
-
-
-const StyledButton = styled(Button)(({ theme }) => ({
-  borderRadius: theme.shape.borderRadius * 2,
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  //@ts-ignore
-  boxShadow: theme.customShadows.z12
+const StyledApp = styled("div")(({ theme }) => ({
+  background: theme.palette.background.default,
+  height: '100%'
 }));
 
 export default function App() {
-  const { themeMode, toggleThemeMode } = useThemeContext();
+  // const { themeMode, toggleThemeMode } = useThemeContext();
   return (
-    <Box
-      sx={{
-        display: "flex",
-        width: "100%",
-        alignItems: "center",
-        justifyContent: "center",
-        bgcolor: "background.default",
-        color: "text.primary",
-        borderRadius: "24px",
-        p: 3,
-      }}
-    >
-      <StyledButton variant="contained" onClick={toggleThemeMode}>
-        {themeMode} mode
-      </StyledButton>
-    </Box>
+    <StyledApp style={{ height: "100vh" }}>
+      <Login />
+    </StyledApp>
   );
 }

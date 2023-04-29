@@ -39,6 +39,30 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
         [themeMode]
     );
 
+    useEffect(() => {
+        const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+        if (mediaQuery.matches) {
+            setThemeMode("dark");
+        } else {
+            setThemeMode("light");
+        }
+
+        const listener = () => {
+            if (mediaQuery.matches) {
+                setThemeMode("dark");
+            } else {
+                setThemeMode("light");
+            }
+        };
+
+        mediaQuery.addEventListener("change", listener);
+
+        return () => {
+            mediaQuery.removeEventListener("change", listener);
+        };
+    }, []);
+
     const toggleThemeMode = useCallback(() => {
         if (themeMode === "light") {
             setThemeMode("dark");
