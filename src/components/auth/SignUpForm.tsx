@@ -9,19 +9,20 @@ import {
     Typography,
     TextField,
     InputAdornment,
-    FormGroup,
+    FormGroup
 } from "@mui/material";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { useThemeContext } from "../../hooks/useThemeContext";
 
-const LoginForm = () => {
+const SignUpForm = () => {
     const [showPassword, setShowPassword] = useState(false);
     const { toggleThemeMode } = useThemeContext();
-
     return (
-        <FormGroup sx={{ width: '100%' }}>
+        <FormGroup>
+
             <Stack spacing={3} direction={"column"} sx={{ width: "100%" }}>
+
                 <TextField name="email" label="Email adress" />
 
                 <TextField
@@ -40,6 +41,12 @@ const LoginForm = () => {
                     }
                 />
 
+                <TextField
+                    type={showPassword ? "text" : "password"}
+                    name="confirmpassword"
+                    label="Confirm password"
+                />
+
                 <Stack
                     direction="row"
                     alignItems="center"
@@ -48,11 +55,20 @@ const LoginForm = () => {
                 >
                     <FormControlLabel
                         control={<Checkbox defaultChecked />}
-                        label="Remember me"
+                        label={
+                            <Typography>
+                                I agree on&nbsp;
+                                <Link href="#" underline="always">
+                                    terms
+                                </Link>
+                                &nbsp;&amp;&nbsp;
+                                <Link href="#" underline="always">
+                                    conditions
+                                </Link>
+                            </Typography>
+                        }
                     />
-                    <Link variant="subtitle2" underline="hover">
-                        Forgot password?
-                    </Link>
+
                 </Stack>
 
                 <Button type="submit" variant="contained" onClick={toggleThemeMode}>
@@ -60,14 +76,14 @@ const LoginForm = () => {
                 </Button>
 
                 <Typography variant="body2" sx={{ textAlign: "center" }}>
-                    Don't have an account?&nbsp;
-                    <Link href="#" underline="always">
-                        Sign up
-                    </Link>{" "}
+                    I have already an account?&nbsp;
+                    <Link href="/login" underline="always" color="primary">
+                        Login
+                    </Link>
                 </Typography>
             </Stack>
         </FormGroup>
     );
 };
 
-export default LoginForm;
+export default SignUpForm;

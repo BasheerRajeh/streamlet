@@ -1,7 +1,7 @@
 import { Container, styled } from "@mui/material";
 import { Helmet } from "react-helmet-async";
 import AuthCard from "../components/auth/AuthCard";
-import LoginForm from "../components/auth/LoginForm";
+import SignUpForm from "../components/auth/SignUpForm";
 
 const StyledContainer = styled(Container)`
   display: flex;
@@ -10,18 +10,18 @@ const StyledContainer = styled(Container)`
   height: 100%;
 `;
 
-const Login = () => {
+const SignUp = () => {
     return (
         <>
             <Helmet>
-                <title>Login | StreamLet</title>
+                <title>SignUp | StreamLet</title>
             </Helmet>
 
             <StyledContainer maxWidth="md">
-                <AuthCard form={<LoginForm />} title="Welcome Back" />
+                <AuthCard form={<SignUpForm />} title="Hi, friend!" />
             </StyledContainer>
         </>
     );
 };
 
-export default Login;
+export default SignUp;
