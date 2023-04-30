@@ -70,7 +70,7 @@ export default function Input(theme: CustomTheme) {
       styleOverrides: {
         input: {
           '&:-webkit-autofill': {
-            '-webkit-box-shadow': `0 0 0 100px ${theme.palette.background.paper} inset`,
+            WebkitBoxShadow: `0 0 0 100px ${theme.palette.background.paper} inset`,
             borderRadius: 'unset',
             paddingLeft: '1rem'
           },
@@ -85,13 +85,14 @@ export default function Input(theme: CustomTheme) {
               borderColor: theme.palette.action.disabledBackground,
             },
             '&:-webkit-autofill': {
-              overflow: 'hiddent',
-              '-webkit-box-shadow': `0 0 0 100px ${theme.palette.primary.main} inset`,
+              overflow: 'hidden',
+              WebkitBoxShadow: `0 0 0 100px ${theme.palette.primary.main} inset`,
             },
           },
         },
       },
     },
+
     MuiInputAdornment: {
       styleOverrides: {
         positionStart: {

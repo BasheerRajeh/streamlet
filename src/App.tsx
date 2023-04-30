@@ -15,7 +15,7 @@ export default function App() {
   // const { themeMode, toggleThemeMode } = useThemeContext();
   return (
     <StyledApp style={{ height: "100vh" }}>
-      <SignUp />
+      <Login />
     </StyledApp>
   );
 }
