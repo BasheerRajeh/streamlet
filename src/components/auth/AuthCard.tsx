@@ -2,10 +2,11 @@ import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import { ReactNode } from "react";
 import logo from "../../assets/images/logo.png";
-import { Box, CardContent, Stack, Typography } from "@mui/material";
-import { bgBlur, bgGradient } from "../../utils/cssStyles";
+import { Box, Stack, Typography } from "@mui/material";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import useResponsive from "../../hooks/useResponsive";
 import mainStreaming from "../../assets/images/man-streaming.png";
+import useCache from "../../hooks/useCache";
 
 interface AuthCardProps {
     form: ReactNode;
@@ -27,32 +28,40 @@ const StyledCard = styled(Card)(({ theme }) => ({
     },
 }));
 
-const Logo = styled("img")`
+const Logo = styled(LazyLoadImage)`
   width: 100px;
   height: 100px;
   object-fit: cover;
 `;
 
-const ImageCard = styled("img")`
-    width: 300px;
+const ImageCard = styled(LazyLoadImage)`
+  width: 300px;
 `;
 
 const AuthCard = ({ form, title }: AuthCardProps) => {
     const upMd = useResponsive("up", "md");
 
+    const urlLogo = useCache(logo);
+    const urlCard = useCache(mainStreaming);
+
     return (
         <StyledCard>
             {upMd ? (
-                <Stack justifyContent="center" alignItems="center" marginLeft='4rem' maxWidth='300px'>
+                <Stack
+                    justifyContent="center"
+                    alignItems="center"
+                    marginLeft="4rem"
+                    maxWidth="300px"
+                >
                     <Typography textAlign="center" variant="h2" color="primary">
                         {title}
                     </Typography>
-                    <ImageCard sx={{ paddingX: 2 }} src={mainStreaming} />
+                    <ImageCard sx={{ paddingX: 2 }} src={urlCard} />
                 </Stack>
             ) : null}
 
             <Stack alignItems="center" sx={{ flexGrow: { xs: 1 } }}>
-                <Logo src={logo} />
+                <Logo src={urlLogo} />
                 <Box
                     sx={{
                         paddingY: 10,
