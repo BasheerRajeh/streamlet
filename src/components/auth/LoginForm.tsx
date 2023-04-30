@@ -12,6 +12,7 @@ import styled from "@mui/material/styles/styled";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import Joi from "joi-browser";
+import { Link as RouterLink } from 'react-router-dom';
 import { Inputs } from "../../interface/input";
 import useValidator from "../../hooks/useValidator";
 
@@ -99,7 +100,7 @@ const LoginForm = () => {
 
                 <Typography variant="body2" sx={{ textAlign: "center" }}>
                     Don't have an account?&nbsp;
-                    <Link href="#" underline="always">
+                    <Link component={RouterLink} to="/signup" underline="always">
                         Sign up
                     </Link>{" "}
                 </Typography>

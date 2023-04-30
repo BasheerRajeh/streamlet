@@ -3,6 +3,12 @@ import { Helmet } from "react-helmet-async";
 import AuthCard from "../components/auth/AuthCard";
 import SignUpForm from "../components/auth/SignUpForm";
 
+const StyledRoot = styled("div")(({ theme }) => ({
+    width: "100vw",
+    height: "100vh",
+    background: `${theme.palette.background.default}`,
+}));
+
 const StyledContainer = styled(Container)`
   display: flex;
   justify-content: center;
@@ -17,9 +23,11 @@ const SignUp = () => {
                 <title>SignUp | StreamLet</title>
             </Helmet>
 
-            <StyledContainer maxWidth="md">
-                <AuthCard form={<SignUpForm />} title="Hi, friend!" />
-            </StyledContainer>
+            <StyledRoot>
+                <StyledContainer maxWidth="md">
+                    <AuthCard form={<SignUpForm />} title="Hi, friend!" />
+                </StyledContainer>
+            </StyledRoot>
         </>
     );
 };

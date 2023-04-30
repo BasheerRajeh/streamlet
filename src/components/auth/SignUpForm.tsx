@@ -13,6 +13,7 @@ import styled from "@mui/material/styles/styled";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import Joi from "joi-browser";
+import { Link as RouterLink } from 'react-router-dom'
 import { Inputs } from "../../interface/input";
 import useValidator from "../../hooks/useValidator";
 
@@ -126,11 +127,11 @@ const SignUpForm = () => {
                         label={
                             <Typography>
                                 I agree on&nbsp;
-                                <Link href="#" underline="always">
+                                <Link component={RouterLink} to="/#" underline="always">
                                     terms
                                 </Link>
                                 &nbsp;&amp;&nbsp;
-                                <Link href="#" underline="always">
+                                <Link component={RouterLink} to="/#" underline="always">
                                     conditions
                                 </Link>
                             </Typography>
@@ -147,7 +148,7 @@ const SignUpForm = () => {
 
                 <Typography variant="body2" sx={{ textAlign: "center" }}>
                     I have already an account?&nbsp;
-                    <Link href="/login" underline="always" color="primary">
+                    <Link component={RouterLink} to="/login" underline="always" color="primary">
                         Login
                     </Link>
                 </Typography>
