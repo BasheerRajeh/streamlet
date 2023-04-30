@@ -12,6 +12,7 @@ const useCache = (url: string) => {
     const [cachedData, setCachedData] = useState<Blob | undefined>(
         cache.get(url)
     );
+    const [loading, setLoading] = useState<boolean>(!cachedData);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -22,15 +23,19 @@ const useCache = (url: string) => {
                 setCachedData(data);
             } catch (error) {
                 console.error(error);
+            } finally {
+                setLoading(false);
             }
         };
 
         if (!cache.has(url)) {
+            setLoading(true);
             fetchData();
         }
     }, [url]);
 
-    return cachedData ? URL.createObjectURL(cachedData) : url;
+
+    return { url: cachedData ? URL.createObjectURL(cachedData) : url, loading };
 };
 
 export default useCache;

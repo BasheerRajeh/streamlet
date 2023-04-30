@@ -1,8 +1,11 @@
 import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
+import Skeleton from "@mui/material/Skeleton";
 import { ReactNode } from "react";
 import logo from "../../assets/images/logo.png";
-import { Box, Stack, Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import useResponsive from "../../hooks/useResponsive";
 import mainStreaming from "../../assets/images/man-streaming.png";
@@ -41,8 +44,8 @@ const ImageCard = styled(LazyLoadImage)`
 const AuthCard = ({ form, title }: AuthCardProps) => {
     const upMd = useResponsive("up", "md");
 
-    const urlLogo = useCache(logo);
-    const urlCard = useCache(mainStreaming);
+    const { url: urlLogo, loading: loadingLogo } = useCache(logo);
+    const { url: urlCard, loading: loadingCard } = useCache(mainStreaming);
 
     return (
         <StyledCard>
@@ -56,12 +59,20 @@ const AuthCard = ({ form, title }: AuthCardProps) => {
                     <Typography textAlign="center" variant="h2" color="primary">
                         {title}
                     </Typography>
-                    <ImageCard sx={{ paddingX: 2 }} src={urlCard} />
+                    {loadingCard ? (
+                        <Skeleton variant="rectangular" width={300} height={300} />
+                    ) : (
+                        <ImageCard sx={{ paddingX: 2 }} src={urlCard} />
+                    )}
                 </Stack>
             ) : null}
 
             <Stack alignItems="center" sx={{ flexGrow: { xs: 1 } }}>
-                <Logo src={urlLogo} />
+                {loadingLogo ? (
+                    <Skeleton variant="rectangular" width={100} height={100} />
+                ) : (
+                    <Logo src={urlLogo} />
+                )}
                 <Box
                     sx={{
                         paddingY: 10,
