@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------
 
-import createTypography, {
+import {
   Typography,
 } from "@mui/material/styles/createTypography";
 
@@ -36,7 +36,7 @@ export function responsiveFontSizes({ sm, md, lg }: FontSizeResponsive) {
 
 // ----------------------------------------------------------------------
 
-const FONT_PRIMARY = "Public Sans, sans-serif"; // Google Font
+const FONT_PRIMARY = "'Poppins', sans-serif"; // Google Font
 // const FONT_SECONDARY = 'CircularStd, sans-serif'; // Local Font
 
 const typography: Typography = {
