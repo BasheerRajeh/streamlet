@@ -30,10 +30,10 @@ const Main = styled("div")(({ theme }) => ({
 }));
 
 const links: Link[] = [
-    { path: '/home', title: 'Home', icon: <HomeIcon /> },
-    { path: '/browse', title: 'Browse', icon: <ExploreIcon /> },
-    { path: '/details', title: 'Details', icon: <InfoIcon /> },
-    { path: '/streams', title: 'Streams', icon: <SportsEsportsIcon /> },
+    { path: '/app/home', title: 'Home', icon: <HomeIcon /> },
+    { path: '/app/browse', title: 'Browse', icon: <ExploreIcon /> },
+    { path: '/app/details', title: 'Details', icon: <InfoIcon /> },
+    { path: '/app/streams', title: 'Streams', icon: <SportsEsportsIcon /> },
 ];
 
 
