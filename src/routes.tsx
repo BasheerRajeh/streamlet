@@ -12,11 +12,11 @@ import StreamsPage from "./pages/StreamsPage";
 export default function Router() {
     const routes = useRoutes([
         {
-            path: '/login',
+            path: 'login',
             element: <Login />
         },
         {
-            path: '/signup',
+            path: 'signup',
             element: <SignUp />
         },
         {
