@@ -2,13 +2,14 @@ import styled from "@mui/material/styles/styled";
 import { Outlet } from "react-router-dom";
 import { Container } from "@mui/material";
 
-import HomeIcon from '@mui/icons-material/Home';
-import ExploreIcon from '@mui/icons-material/Explore';
-import InfoIcon from '@mui/icons-material/Info';
-import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
+import HomeIcon from "@mui/icons-material/Home";
+import ExploreIcon from "@mui/icons-material/Explore";
+import InfoIcon from "@mui/icons-material/Info";
+import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 
 import Header from "../components/header/Header";
 import Link from "../interface/links";
+import AppContainer from "../components/shared/Container";
 
 const StyledRoot = styled("div")(({ theme }) => ({
     display: "flex",
@@ -22,20 +23,19 @@ const Main = styled("div")(({ theme }) => ({
     flexGrow: 1,
     overflow: "auto",
     minHeight: "100%",
-    display: 'flex',
-    justifyContent: 'space-between',
-    flexDirection: 'column',
+    display: "flex",
+    justifyContent: "space-between",
+    flexDirection: "column",
     paddingTop: 50,
     paddingBottom: theme.spacing(10),
 }));
 
 const links: Link[] = [
-    { path: '/app/home', title: 'Home', icon: <HomeIcon /> },
-    { path: '/app/browse', title: 'Browse', icon: <ExploreIcon /> },
-    { path: '/app/details', title: 'Details', icon: <InfoIcon /> },
-    { path: '/app/streams', title: 'Streams', icon: <SportsEsportsIcon /> },
+    { path: "/app/home", title: "Home", icon: <HomeIcon /> },
+    { path: "/app/browse", title: "Browse", icon: <ExploreIcon /> },
+    { path: "/app/details", title: "Details", icon: <InfoIcon /> },
+    { path: "/app/streams", title: "Streams", icon: <SportsEsportsIcon /> },
 ];
-
 
 const MainLayout = () => {
     return (
@@ -43,8 +43,9 @@ const MainLayout = () => {
             <Container>
                 <Header links={links} />
                 <Main>
-                    <Outlet />
-                    <div>Footer</div>
+                    <AppContainer>
+                        <Outlet />
+                    </AppContainer>
                 </Main>
             </Container>
         </StyledRoot>

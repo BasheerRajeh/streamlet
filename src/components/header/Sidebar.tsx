@@ -6,10 +6,12 @@ import {
     List,
     Divider,
     ListItemIcon,
+    useTheme,
 } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import Logo from "./Logo";
 import Link from "../../interface/links";
+import { bgBlur } from "../../utils/cssStyles";
 
 interface Props {
     links: Link[];
@@ -18,6 +20,7 @@ interface Props {
 }
 
 const Sidebar = ({ links, openNav = false, onCloseNav }: Props) => {
+    const theme = useTheme();
     const toggleDrawer = () => (event: any) => {
         if (
             event.type === "keydown" &&
@@ -38,7 +41,19 @@ const Sidebar = ({ links, openNav = false, onCloseNav }: Props) => {
     };
 
     return (
-        <Drawer anchor="right" open={openNav} onClose={toggleDrawer()}>
+        <Drawer
+            anchor="right"
+            open={openNav}
+            BackdropProps={{
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                //@ts-ignore
+                sx: {
+                    ...(bgBlur({ color: `${theme.palette.background.default}` }))
+                    // backgroundColor: 'rgba(0, 0, 0, 0.5)', // set the backdrop color to semi-transparent black
+                },
+            }}
+            onClose={toggleDrawer()}
+        >
             <Box sx={{ p: 2 }}>
                 <Logo />
             </Box>

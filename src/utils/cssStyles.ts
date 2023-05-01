@@ -5,7 +5,7 @@ interface BlurProps {
   blur?: number;
   opacity?: number;
   imgUrl?: string;
-
+  index?: number;
 }
 
 export function bgBlur(props: BlurProps) {
@@ -13,6 +13,8 @@ export function bgBlur(props: BlurProps) {
   const blur = props?.blur || 6;
   const opacity = props?.opacity || 0.8;
   const imgUrl = props?.imgUrl;
+  const index = props?.index || 5;
+
 
   if (imgUrl) {
     return {
@@ -22,10 +24,11 @@ export function bgBlur(props: BlurProps) {
         position: 'absolute',
         top: 0,
         left: 0,
-        zIndex: 9,
+        zIndex: `${index}`,
         content: '""',
         width: '100%',
         height: '100%',
+        borderRadius: 'inherit',
         backdropFilter: `blur(${blur}px)`,
         WebkitBackdropFilter: `blur(${blur}px)`,
         backgroundColor: alpha(color, opacity),
