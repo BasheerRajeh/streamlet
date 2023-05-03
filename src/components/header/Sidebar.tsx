@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import Logo from "./Logo";
-import Link from "../../interface/links";
+import Link from "../../interface/Iinks";
 import { bgBlur } from "../../utils/cssStyles";
 
 interface Props {

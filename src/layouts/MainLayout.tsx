@@ -8,7 +8,7 @@ import InfoIcon from "@mui/icons-material/Info";
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 
 import Header from "../components/header/Header";
-import Link from "../interface/links";
+import Link from "../interface/Iinks";
 import AppContainer from "../components/shared/Container";
 
 const StyledRoot = styled("div")(({ theme }) => ({

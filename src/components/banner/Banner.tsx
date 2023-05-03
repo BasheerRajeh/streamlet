@@ -16,7 +16,7 @@ const StyledRoot = styled(Card)`
   height: 380px;
   position: relative;
   border-radius: ${(props) => props.theme.shape.borderRadius * 2};
-  /* background-position: center center; */
+  background-position: center right;
 `;
 
 const StyledButton = styled(Button)`

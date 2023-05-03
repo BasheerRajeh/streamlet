@@ -5,7 +5,7 @@ import Box from "@mui/material/Box";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import { Link as RouterLink, useLocation } from "react-router-dom";
-import LinkType from "../../interface/links";
+import LinkType from "../../interface/Iinks";
 import { Theme } from "@mui/material/styles";
 
 interface NavItemButtonProps {

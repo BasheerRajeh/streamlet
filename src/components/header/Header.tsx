@@ -12,7 +12,7 @@ import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import Logo from "./Logo";
 import { useThemeContext } from "../../hooks/useThemeContext";
-import Link from "../../interface/links";
+import Link from "../../interface/Iinks";
 import Sidebar from "./Sidebar";
 import useResponsive from "../../hooks/useResponsive";
 import Navbar from "./Navbar";
